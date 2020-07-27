@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="retro.css" />
+    <link rel="icon" type="image/png" href="../logo.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Acronyms</title>
+</head>
+<nav>
+    <div id="nav-title">
+        <a href="interpret.html" style="text-decoration: none;">
+            <h1><span>Custom Acronyms</span> <a style="font-size: 15px; color: white; text-decoration: none;" href="manage.html">[Retro]</a></h1>
+        </a>
+    </div>
+    <div>
+        <ul id="nav-items">
+            <a href="#">
+                <li id="nav-tab1" class="nav-item" style="color: white;">Manage</li>
+            </a>
+            <a href="retro-interpret.html">
+                <li id="nav-tab2" class="nav-item" style="margin-right: -7px;">Interpret</li>
+            </a>
+        </ul>
+    </div>
+</nav>
+<body>
+    <div id="flex-container">
+        <div class="flex-item">
+            <center>
+                <input class="inv_shadow_box" placeholder="Search" type="text" id="searchAcronym-input" style="top: 100px; left: -240px;height: 50px; margin-top: 130px;">
+                <button onclick="searchAcronyms()" class="submit" style="top: -30px; right: 0px;">Search</button>
+
+                <div id="search-output">
+                    <h3></h3>
+                </div>
+            </center>
+        </div>
+        <div class="flex-item">
+            <center>
+                <input class="inv_shadow_box" placeholder="Acronym" type="text" id="addAcronym-input" style="top: 100px; left: -240px;height: 50px; margin-top: 130px;"></input><br/>
+                <input class="inv_shadow_box" placeholder="Phrase" type="text" style="top: -50px; left: -240px; height: 50px; margin-top: 20px;" id="definition-input"></input>
+                <button onclick="addAcronym()" placeholder="submit" class="submit" style="top: -30px; right: 0px;">Add</button>
+
+                <input class="inv_shadow_box" placeholder="Delete" type="text" id="delAcronym-input" style="top: -337px; right: -170px; height: 50px;">
+                <button onclick="deleteAcronym()" class="submit" style="top: -30px; right: 0px;">Delete</button>
+
+                <div id="output">
+                    <h3></h3>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+
+    <script src="main.js"></script>
+</html>

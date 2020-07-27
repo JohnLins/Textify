@@ -1,0 +1,229 @@
+
+  body{
+    background-image: url(retro-background.jpg);
+  }
+
+  :root {
+  --main-color: gray;
+  --main-color-hover: black;
+  --accent-color: rgb(196, 196, 196);
+  --accent-color-hover: rgb(234, 234, 234);
+
+  --main-box-shadow: 0px 5px 10px 0px rgba(80, 80, 80, 0.75);;
+}
+
+::placeholder {
+  color: var(--accent-color);
+}
+
+/* Edge */
+::-ms-input-placeholder {
+  color: var(--accent-color);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'VT323', monospace;
+  color: lightgray;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.inv_shadow_box {
+  height: 200px;
+  width: 450px;
+  background-color: var(--main-color);
+  padding: 1.5vw;
+  border: none;
+  color: var(--accent-color);
+  border: 1px solid black;
+  margin-top: 10px;
+  box-shadow: var(--main-box-shadow);
+}
+
+.submit {
+  height: 40px;
+  width: 200px;
+  background-color: var(--main-color);
+  display: block;
+  border: yellow;
+  margin: 40px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  position: relative;
+  box-shadow: var(--main-box-shadow);
+  transition: background-color 0.2s;
+
+}
+
+.submit:hover {
+  cursor: pointer;
+  background-color: var(--main-color-hover);
+  color: white;
+}
+
+.inv_shadow_text {
+  color: #add0ec;
+  text-shadow: 1px 1px white, -1px -1px #444;
+}
+
+nav {
+  background-color: var(--main-color);
+  border-bottom: 1px solid var(--accent-color);
+  position: fixed;
+  font-size: 1.5rem;
+  list-style: none;
+
+  width: 100%;
+  height: 3rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+
+  backdrop-filter: blur(25px);
+  position: fixed;
+  padding: 0.5vw;
+  z-index: 10;
+}
+
+nav a {
+  color: rgb(37, 37, 37);
+}
+
+#nav-title {
+  margin-left: 8px;
+  margin-top: 3px;
+}
+
+#nav-title:hover {
+  cursor: pointer;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: block;
+  border-radius: 6px;
+  height: 100%;
+  padding: 7px 6px;
+  margin: 25px;
+  float: right;
+  margin-top: -33px;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  color: var(--accent-color-hover);
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+#textToSpeech {
+  margin-left: -10px;
+}
+#download {
+  margin-left: 55px;
+}
+
+#emailSend {
+  margin-left: 120px;
+}
+
+#textSend {
+  margin-left: 185px;
+}
+
+.extra_button {
+  position: absolute;
+  box-shadow: var(--main-box-shadow);
+  margin-top: -70px;
+  position: absolute;fill:#000000;
+  background-color: gray;
+  padding: 5px; height: 40px;
+  width: 40px;
+  border: 1px solid black;
+}
+.extra_button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#output, #search-output {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+#output h3, #search-output h3 {
+  color: white;
+}
+
+#flex-container {
+  display: flex;
+  justify-content: center
+}
+
+.flex-item {
+  margin: 0 30px 0 30px;
+}
+
+#load-presets {
+  background-color: var(--main-color);
+  box-shadow: var(--main-box-shadow);
+  border-radius: 6px;
+  position: absolute;
+  right: 140px;
+  top: 130px;
+  padding: 10px 20px;
+}
+
+#load-presets:hover {
+  cursor: pointer;
+}
+/* WAVES */
+
+
+
+.ocean { 
+  height: -2%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--main-color);
+}
+
+.wave {
+  background: url(wave.svg) repeat-x; 
+  position: absolute;
+  top: -148px;
+  width: 6400px;
+  height: 160px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -125px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+
+/*198, 6400
