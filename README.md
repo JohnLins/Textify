@@ -1,3 +1,5 @@
+<img src="Screenshot from 2020-07-27 14-27-44.png"/>
+
 # Inspiration
 To make messaging easier for the average person, and for professions that include a substantial amount of acronyms such as Doctors and Pilots to communicate with co-workers faster especially when time is crucial.
 
