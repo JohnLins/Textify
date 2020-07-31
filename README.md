@@ -1,6 +1,7 @@
 # Custom_Acronyms
 
 <img src="screenshot.png">
+<img src="screenshot-Retro.png">
 
 # Inspiration
 We want to make messaging easier.
