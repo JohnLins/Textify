@@ -1,0 +1,62 @@
+[
+    {
+        "acronym": "abd",
+        "def": "abdominal"
+    },
+    {
+        "acronym": "ABG",
+        "def": "arterial blood gas"
+    },
+    {
+        "acronym": "a.c.",
+        "def": "before meals"
+    },
+    {
+        "acronym": "ACLS",
+        "def": "advanced cardiac life support"
+    },
+    {
+        "acronym": "AD",
+        "def": "right ear"
+    },
+    {
+        "acronym": "ADL",
+        "def": "activities of daily living"
+    },
+    {
+        "acronym": "EENT",
+        "def": "eyes, ears, node, throat"
+    },
+    {
+        "acronym": "qd",
+        "def": "every day"
+    },
+    {
+        "acronym": "qh",
+        "def": "every hour"
+    },
+    {
+        "acronym": "qhs",
+        "def": "every night at bedtime"
+    },
+    {
+        "acronym": "qod",
+        "def": "every other day"
+    },
+    {
+        "acronym": "qns",
+        "def": "quantity sufficient"
+    },
+    {
+        "acronym": "R/O",
+        "def": "rule out"
+    },
+    {
+        "acronym": "PT",
+        "def": "physical therapy"
+    },
+    {
+        "acronym": "PH",
+        "def": "past history"
+    }
+]
