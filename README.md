@@ -23,3 +23,7 @@ Daniel and I learned each other's workflow which boosted efficiency.
 
 # What's next for Custom Acronyms Retro
 We hope to deploy it just for fun on a basic home server.
+
+# run
+`cd /CustomAcronymsApp`
+`sh run.sh`
