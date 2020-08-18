@@ -26,4 +26,5 @@ We hope to deploy it just for fun on a basic home server.
 
 # run
 `cd /CustomAcronymsApp`
+</br>
 `sh run.sh`
