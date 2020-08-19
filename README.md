@@ -1,5 +1,5 @@
 # Custom_Acronyms
-
+© 2020 John Lins, Daniel Goldenberg
 <img src="screenshot.jpg">
 <img src="screenshot2.jpg">
 
