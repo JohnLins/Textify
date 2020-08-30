@@ -1,5 +1,7 @@
 # Custom_Acronyms
 Work of <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and John Lins (William M. Soon)
+<br/>
+
 <img src="screenshot.jpg">
 <img src="screenshot2.jpg">
 
