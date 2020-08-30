@@ -1,5 +1,5 @@
 # Custom_Acronyms
-© 2020 John Lins, Daniel Goldenberg
+Work of <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and John Lins (William M. Soon)
 <img src="screenshot.jpg">
 <img src="screenshot2.jpg">
 
