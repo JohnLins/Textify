@@ -18,11 +18,11 @@ var acronyms = make(map[string]string)
 
 func main() {
 	acronyms["idk"] = "I don't know"
-    acronyms["ikr"] = "I know right"
-    acronyms["omg"] = "oh my gosh"
-    acronyms["wtf"] = "what the f***"
-    acronyms["wdym"] = "what do you mean"
-    acronyms["btw"] = "by the way"
+	acronyms["ikr"] = "I know right"
+	acronyms["omg"] = "oh my gosh"
+	acronyms["wtf"] = "what the f***"
+	acronyms["wdym"] = "what do you mean"
+	acronyms["btw"] = "by the way"
 
 	fmt.Println("Server started...")
 	fmt.Println(" * Running on http://127.0.0.1:8080/")
@@ -70,40 +70,38 @@ func interpretMessageResponse(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 
 	message := params["msg"]
-	
-	/////////////////////////////////////////////////
-	output := []byte(message)
-	
-	memeifi := false
-	for i := 0; i < len(message); i++ {
-
-	if string(message[i]) == "<" {
-	memeifi = true
-	output[i] = 32
-	}
-	
-	if string(message[i]) == ">" {
-	memeifi = false
-	output[i] = 32
-	}
-	
-	if memeifi == true && output[i] != byte(' '){
-		if i%2 == 0 {
-		output[i] = byte(output[i] - 32)
-		}
-		
-	}
-	
-}
-/////////////////////////////////////////////////
 
 	for index, element := range acronyms {
 		message = strings.Replace(message, index, element, 1)
 	}
 
+	output := []byte(message)
+
+	memeifi := false
+	for i := 0; i < len(message); i++ {
+
+		if string(message[i]) == "<" {
+			memeifi = true
+			output[i] = 32
+		}
+
+		if string(message[i]) == ">" {
+			memeifi = false
+			output[i] = 32
+		}
+
+		if memeifi == true && output[i] != byte(' ') {
+			if i%2 == 0 {
+				output[i] = byte(output[i] - 32)
+			}
+
+		}
+
+	}
+
 	fmt.Println(r.Method + " recieved with param " + "'" + params["msg"] + "'" + " Returned: " + message)
 
-	json.NewEncoder(w).Encode(message)
+	json.NewEncoder(w).Encode(string(output))
 }
 
 func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
@@ -113,117 +111,60 @@ func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 
 	message := params["msg"]
-	//message := ""
-	
-////////////////////////////////////////////
-oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ','ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
 
-output := []rune(message)
-	
-memeifi := false
-emojifi := false
-for i := 0; i < len(message); i++ {
-
-	if string(message[i]) == "<" {
-	memeifi = true
-	output[i] = rune(32)
-	}
-	
-	if string(message[i]) == ">" {
-	memeifi = false
-	output[i] = rune(32)
-	}
-	
-	if memeifi == true && output[i] != ' '{
-		if i%2 == 0 {
-		output[i] = rune(byte(output[i]) - 32)
-		}
-	}
-	
-	if string(message[i]) == "{" {
-		emojifi = true
-		output[i] = 32
-	}
-
-	if string(message[i]) == "}" {
-		emojifi = false
-		output[i] = 32
-	}
-
-	if emojifi == true && output[i] != rune(' '){
-        if byte(message[i]) >= 97 && byte(message[i]) <= 122{
-          output[i] = rune(oddLetters[output[i]-97])
-
-          
-      } else if byte(message[i]) >= 65 && byte(message[i]) <= 90 {
-          output[i] = rune(oddLetters[output[i]-65])
-      } 
-      
-    }
-
-}
-
-	//////////////////////////////////////////
-	stringOutput := string(output)
 	for index, element := range acronyms {
-		stringOutput = strings.Replace(stringOutput, index, "<mark style=\"color:#40586d;\">" + element + "</mark>", 1)
+		message = strings.Replace(message, index, element, 1)
 	}
 
+	oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ', 'ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
 
+	output := []rune(message)
 
+	memeifi := false
+	emojifi := false
+	for i := 0; i < len(message); i++ {
 
+		if string(message[i]) == "<" {
+			memeifi = true
+			output[i] = rune(32)
+		}
 
+		if string(message[i]) == ">" {
+			memeifi = false
+			output[i] = rune(32)
+		}
 
-	/*
-	package main
+		if memeifi == true && output[i] != ' ' {
+			if i%2 == 0 {
+				output[i] = rune(byte(output[i]) - 32)
+			}
+		}
 
-import "fmt"
+		if string(message[i]) == "{" {
+			emojifi = true
+			output[i] = 32
+		}
 
+		if string(message[i]) == "}" {
+			emojifi = false
+			output[i] = 32
+		}
 
-func main() {
+		if emojifi == true && output[i] != rune(' ') {
+			if byte(message[i]) >= 97 && byte(message[i]) <= 122 {
+				output[i] = rune(oddLetters[output[i]-97])
 
+			} else if byte(message[i]) >= 65 && byte(message[i]) <= 90 {
+				output[i] = rune(oddLetters[output[i]-65])
+			}
 
-    oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ','ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
+		}
 
-
-    message := "Hello, did you know that he is {gay}"
-    output := []byte(message)
-
-
-    
-    emojifi := false
-    for i := 0; i < len(message); i++ {
-
-    if string(message[i]) == "{" {
-    emojifi = true
-    output[i] = 32
-    }
-    
-    if string(message[i]) == "}" {
-    emojifi = false
-    output[i] = 32
-    }
-      
-      if emojifi == true && output[i] != byte(' '){
-        if message[i] >= 97 && message[i] <= 122{
-          output[i] = byte(oddLetters[2])
-      } else if message[i] >= 65 && message[i] <= 90 {
-          output[i] = byte(oddLetters[1])
-      } 
-      
-    }
-    
-  }
-
-  fmt.Println(string(output))
-}
-*/
-
-	//////
+	}
 
 	fmt.Println(r.Method + " recieved with param " + "'" + params["msg"] + "'" + " Returned: " + message)
 
-	json.NewEncoder(w).Encode(stringOutput)
+	json.NewEncoder(w).Encode(string(output))
 }
 
 func removeResponse(w http.ResponseWriter, r *http.Request) {
@@ -231,13 +172,13 @@ func removeResponse(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	params := mux.Vars(r)
-	if params["bool"] == "true"{
+	if params["bool"] == "true" {
 		for key, element := range acronyms {
 			delete(acronyms, key)
 			fmt.Println(element + " Removed")
 		}
 	}
-	 
+
 	fmt.Println("remove")
 
 	json.NewEncoder(w).Encode("All Acronyms removed")
