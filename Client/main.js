@@ -169,3 +169,21 @@ function emailMessage() {
     request.send()
   }
 }
+
+
+
+
+function removeAll() {
+    var searchAcronym = document.getElementById("searchAcronym-input").value
+    
+    var url = `http://localhost:8080/remove?remove=true`
+
+    var request = new XMLHttpRequest()
+    request.open("GET", url)
+    request.onload = () => {
+        var response = JSON.parse(request.responseText) 
+        document.querySelector("#remove_message").querySelector("h3").innerText = response
+    }
+
+    request.send()
+}

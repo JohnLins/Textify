@@ -42,10 +42,12 @@ func main() {
 	r.HandleFunc("/sendText", sendText).Queries("phoneNumber", "{phoneNumber}", "msg", "{msg}").Methods("GET")
 	r.HandleFunc("/sendEmail", sendEmail).Queries("email", "{email}", "msg", "{msg}").Methods("GET")
 
+	r.HandleFunc("/remove", removeResponse).Queries("remove", "{bool}").Methods("GET")
+
 	url := ""
 	switch runtime.GOOS {
 	case "windows":
-		url = "./Client/"
+		url = "../Client/"
 	case "darwin":
 		url = "../Client/"
 	default:
@@ -68,7 +70,33 @@ func interpretMessageResponse(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 
 	message := params["msg"]
-	//message := ""
+	
+	/////////////////////////////////////////////////
+	output := []byte(message)
+	
+	memeifi := false
+	for i := 0; i < len(message); i++ {
+
+	if string(message[i]) == "<" {
+	memeifi = true
+	output[i] = 32
+	}
+	
+	if string(message[i]) == ">" {
+	memeifi = false
+	output[i] = 32
+	}
+	
+	if memeifi == true && output[i] != byte(' '){
+		if i%2 == 0 {
+		output[i] = byte(output[i] - 32)
+		}
+		
+	}
+	
+}
+/////////////////////////////////////////////////
+
 	for index, element := range acronyms {
 		message = strings.Replace(message, index, element, 1)
 	}
@@ -86,13 +114,133 @@ func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 
 	message := params["msg"]
 	//message := ""
-	for index, element := range acronyms {
-		message = strings.Replace(message, index, "<mark style=\"color:#40586d;\">" + element + "</mark>", 1)
+	
+////////////////////////////////////////////
+oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ','ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
+
+output := []rune(message)
+	
+memeifi := false
+emojifi := false
+for i := 0; i < len(message); i++ {
+
+	if string(message[i]) == "<" {
+	memeifi = true
+	output[i] = rune(32)
 	}
+	
+	if string(message[i]) == ">" {
+	memeifi = false
+	output[i] = rune(32)
+	}
+	
+	if memeifi == true && output[i] != ' '{
+		if i%2 == 0 {
+		output[i] = rune(byte(output[i]) - 32)
+		}
+	}
+	
+	if string(message[i]) == "{" {
+		emojifi = true
+		output[i] = 32
+	}
+
+	if string(message[i]) == "}" {
+		emojifi = false
+		output[i] = 32
+	}
+
+	if emojifi == true && output[i] != rune(' '){
+        if byte(message[i]) >= 97 && byte(message[i]) <= 122{
+          output[i] = rune(oddLetters[output[i]-97])
+
+          
+      } else if byte(message[i]) >= 65 && byte(message[i]) <= 90 {
+          output[i] = rune(oddLetters[output[i]-65])
+      } 
+      
+    }
+
+}
+
+	//////////////////////////////////////////
+	stringOutput := string(output)
+	for index, element := range acronyms {
+		stringOutput = strings.Replace(stringOutput, index, "<mark style=\"color:#40586d;\">" + element + "</mark>", 1)
+	}
+
+
+
+
+
+
+	/*
+	package main
+
+import "fmt"
+
+
+func main() {
+
+
+    oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ','ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
+
+
+    message := "Hello, did you know that he is {gay}"
+    output := []byte(message)
+
+
+    
+    emojifi := false
+    for i := 0; i < len(message); i++ {
+
+    if string(message[i]) == "{" {
+    emojifi = true
+    output[i] = 32
+    }
+    
+    if string(message[i]) == "}" {
+    emojifi = false
+    output[i] = 32
+    }
+      
+      if emojifi == true && output[i] != byte(' '){
+        if message[i] >= 97 && message[i] <= 122{
+          output[i] = byte(oddLetters[2])
+      } else if message[i] >= 65 && message[i] <= 90 {
+          output[i] = byte(oddLetters[1])
+      } 
+      
+    }
+    
+  }
+
+  fmt.Println(string(output))
+}
+*/
+
+	//////
 
 	fmt.Println(r.Method + " recieved with param " + "'" + params["msg"] + "'" + " Returned: " + message)
 
-	json.NewEncoder(w).Encode(message)
+	json.NewEncoder(w).Encode(stringOutput)
+}
+
+func removeResponse(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	params := mux.Vars(r)
+	if params["bool"] == "true"{
+		for key, element := range acronyms {
+			delete(acronyms, key)
+			fmt.Println(element + " Removed")
+		}
+	}
+	 
+	fmt.Println("remove")
+
+	json.NewEncoder(w).Encode("All Acronyms removed")
 }
 
 func addAcronymResponse(w http.ResponseWriter, r *http.Request) {
