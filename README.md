@@ -2,7 +2,7 @@
 Work of <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and John Lins (William M. Soon)
 <br/>
 
-<img src="screenshot.jpg">
+<img src="screenshot1.jpg">
 <img src="screenshot2.jpg">
 
 # Inspiration
@@ -17,13 +17,13 @@ With Golang as the server-side language and HTML/CSS/JS on the frontend. This wa
 # Challenges we ran into
 Some git issues and plenty of bugs.
 
-# Accomplishments that we're proud of
+# Accomplishments we're proud of
 Teamwork, speed, our product is easy to use!
 
 # What we learned
 Daniel and I learned each other's workflow which boosted efficiency.
 
-# What's next for Custom Acronyms Retro
+# What's next for Custom Acronyms
 We hope to deploy it just for fun on a basic home server.
 
 # Run
