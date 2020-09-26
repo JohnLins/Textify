@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="main.css" />
-    <link rel="icon" type="image/png" href="../logo.png"/>
-    <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Modak&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png"/>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Acronyms</title>
+    <title>Textify - Custom Acronyms</title>
 </head>
 <nav style="color: rgb(37, 37, 37);">
     <div id="nav-title">
         <a href="interpret.html" style="text-decoration: none;">
-            <h1><span>Custom Acronyms</span> <a style="font-size: 15px; color: white; text-decoration: none;" href="retro-interpret.html">[Modern]</a></h1>
+        <img src="logo.png" style="width: 60px; position: absolute; margin: -9px;"/>
+           <h1 style="margin-left: 60px;"><span style="color:white;">Textify</span> - Custom Acronyms</h1>
         </a>
     </div>
     <div>
@@ -53,6 +57,8 @@
     Prewritten Acronyms!
     </div>
     </div>
+
+    <div style="margin-top: -1px;">
     <center>
     <a onclick="textToSpeech()">
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 172 172"  id="textToSpeech" class="extra_button">
@@ -96,18 +102,20 @@ viewBox="0 0 172 172" id="emailSend" class="extra_button"><g fill="none" fill-ru
 <p id="messageSent"></p>
 </center>
 
+</div>
+
     <!-- <div class="ocean">
     <div class="wave"></div>
     <div class="wave"></div>
     </div> -->
 
-    <div id="output" style="position: relative;">
+    <div id="output" style="position: relative; margin: 60px;">
         <h3></h3>
     </div>
 
-
+<center>
     <a href="javascript:history.go(0)" color="black" class="clear_button">Clear<a/>
-
+</center>
 <style>
 .clear_button {
   box-shadow: var(--main-box-shadow);
@@ -119,6 +127,7 @@ viewBox="0 0 172 172" id="emailSend" class="extra_button"><g fill="none" fill-ru
   position: relative;
   top: 30px;
   text-decoration: none;
+  position: static;
 }
 .clear_button:hover {
   cursor: pointer;
