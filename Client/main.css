@@ -59,6 +59,10 @@
   color: white;
 }
 
+.submit {
+    outline: none;
+}
+
 .inv_shadow_text {
   color: #add0ec;
   text-shadow: 1px 1px white, -1px -1px #444;
@@ -139,9 +143,14 @@ textarea:focus, input:focus{
   padding: 5px; height: 40px;
   width: 40px;
 }
+
 .extra_button:hover {
   cursor: pointer;
   color: white;
+}
+
+.extra_button:active {
+    outline: none;
 }
 
 #output, #search-output {
