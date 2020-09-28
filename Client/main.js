@@ -170,9 +170,6 @@ function emailMessage() {
   }
 }
 
-
-
-
 function removeAll() {
     var searchAcronym = document.getElementById("searchAcronym-input").value
     
