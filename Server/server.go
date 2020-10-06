@@ -79,7 +79,6 @@ func interpretMessageResponse(w http.ResponseWriter, r *http.Request) {
 
 	memeifi := false
 	for i := 0; i < len(message); i++ {
-
 		if string(message[i]) == "<" {
 			memeifi = true
 			output[i] = 32
@@ -94,9 +93,7 @@ func interpretMessageResponse(w http.ResponseWriter, r *http.Request) {
 			if i%2 == 0 {
 				output[i] = byte(output[i] - 32)
 			}
-
 		}
-
 	}
 
 	fmt.Println(r.Method + " recieved with param " + "'" + params["msg"] + "'" + " Returned: " + message)
@@ -153,7 +150,6 @@ func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 		if emojifi == true && output[i] != rune(' ') {
 			if byte(message[i]) >= 97 && byte(message[i]) <= 122 {
 				output[i] = rune(blockLetters[output[i]-97])
-
 			} else if byte(message[i]) >= 65 && byte(message[i]) <= 90 {
 				output[i] = rune(blockLetters[output[i]-65])
 			}
@@ -276,7 +272,6 @@ func sendEmail(w http.ResponseWriter, r *http.Request) {
 
 func sendText(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-
 	key := "1b4c064b"
 	secret := "MG18mzvuWLVMbszK"
 	auth := nexmo.NewAuthSet()

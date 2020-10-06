@@ -172,7 +172,6 @@ function emailMessage() {
 
 function removeAll() {
     var searchAcronym = document.getElementById("searchAcronym-input").value
-    
     var url = `http://localhost:8080/remove?remove=true`
 
     var request = new XMLHttpRequest()
@@ -183,4 +182,16 @@ function removeAll() {
     }
 
     request.send()
+}
+
+function copyToClipboard() {
+    var copyText = document.getElementById("merp")
+    var textArea = document.createElement("textarea")
+    textArea.value = copyText.innerText
+    document.body.append(textArea)
+    textArea.select()
+    document.execCommand("copy");
+    document.body.removeChild(textArea)
+
+    alert("Copied the text: " + textArea.value);
 }
