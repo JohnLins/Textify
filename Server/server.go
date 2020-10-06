@@ -116,7 +116,7 @@ func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 		message = strings.Replace(message, index, element, 1)
 	}
 
-	oddLetters := []rune{'🅰', '𝓫', '🄲', '𝕕', 'ᴇ', '🅵', '🅶', 'Ⱨ', 'ï', '𝒿', '𝕜', 'ᒪ', '𝓶', '🄽', 'ｏ', '🅿', 'ⓠ', 'Ꮢ', 'ʂ', '₮', 'ᑌ', 'Ꮙ', 'ຟ', 'χ', '¥', 'ž'}
+	blockLetters := []rune{'🅰', '🅱', '🅲', '🅳', '🅴', '🅵', '🅶', '🅷', '🅸', '🅹', '🅺', '🅻', '🅼', '🅽', '🅾', '🅿', '🆀', '🆁', '🆂', '🆃', '🆄', '🆅', '🆆', '🆇', '🆈', '🆉'}
 
 	output := []rune(message)
 
@@ -140,22 +140,22 @@ func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 
-		if string(message[i]) == "{" {
+		if string(message[i]) == "[" {
 			emojifi = true
 			output[i] = 32
 		}
 
-		if string(message[i]) == "}" {
+		if string(message[i]) == "]" {
 			emojifi = false
 			output[i] = 32
 		}
 
 		if emojifi == true && output[i] != rune(' ') {
 			if byte(message[i]) >= 97 && byte(message[i]) <= 122 {
-				output[i] = rune(oddLetters[output[i]-97])
+				output[i] = rune(blockLetters[output[i]-97])
 
 			} else if byte(message[i]) >= 65 && byte(message[i]) <= 90 {
-				output[i] = rune(oddLetters[output[i]-65])
+				output[i] = rune(blockLetters[output[i]-65])
 			}
 
 		}
