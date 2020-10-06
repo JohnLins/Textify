@@ -302,6 +302,7 @@ func sendText(w http.ResponseWriter, r *http.Request) {
 func open(url string) error {
 	var cmd string
 	var args []string
+
 	switch runtime.GOOS {
 	case "windows":
 		cmd = "cmd"
