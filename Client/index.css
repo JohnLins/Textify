@@ -32,6 +32,9 @@ li, a, button {
   text-decoration: none;
 }
 
+#title {
+  font-size: 36px;
+}
 
 header {
   display: flex;
