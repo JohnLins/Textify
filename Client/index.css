@@ -1,0 +1,142 @@
+:root {
+  --main-color: #40586d;
+  --main-color-hover: #526d85;
+  --accent-color: rgb(196, 196, 196);
+  --accent-color-hover: rgb(234, 234, 234);
+
+  --main-box-shadow: 0px 5px 10px 0px rgba(80, 80, 80, 0.75);
+}
+
+::placeholder {
+  color: var(--accent-color);
+}
+
+/* Edge */
+::-ms-input-placeholder {
+  color: var(--accent-color);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat";
+  color: lightgray;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+li, a, button {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  background-color: var(--main-color);
+}
+
+.cta {
+  background-color: var(--main-color);
+}
+
+.cta button {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+}
+
+.logo {
+  cursor: pointer;
+  background-color: var(--main-color);
+}
+
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+  background-color: var(--main-color);
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+  background-color: var(--main-color);
+}
+
+.nav__links li a:hover {
+  color: var(--accent-color-hover);
+}
+
+button {
+  margin: 1%;
+  padding: 9px 25px;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: var(--main-color-hover);
+}
+
+.cta button:hover {
+  background-color: var(--accent-color-hover);
+  color: var(--main-color-hover);
+}
+
+#Paragraph {
+  display: inline-flex;
+  position: static;
+  margin:0px 1.5% 0px 0px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--main-color);
+  padding: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--accent-color);
+  text-decoration: none;
+  width: 43.5%;
+}
+
+.Blog:nth-child(2) {
+  margin:0px 0px 0px 1.5%;
+}
+
+article {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 30px 5%;
+}
+
+#BigLaunch {
+  padding: 18px 50px;
+  font-size: 78px;
+  border-radius: 100px;
+}
+
+#Paragraph2 {
+  display: block;
+  position: static;
+  margin:0px 1.5% 0px 0px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--main-color);
+  padding: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--accent-color);
+  text-decoration: none;
+  width: 43.5%;
+}

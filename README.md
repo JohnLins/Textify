@@ -2,8 +2,8 @@
 Work of <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and John Lins (William M. Soon)
 <br/>
 
-<img src="screenshot1.jpg">
-<img src="screenshot2.jpg">
+<img src="screenshot1.png">
+<img src="screenshot2.png">
 
 # Inspiration
 To make messaging easier for the average person, and for professions that include a substantial amount of acronyms such as Doctors and Pilots to communicate with co-workers faster especially when time is crucial.

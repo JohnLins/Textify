@@ -34,7 +34,7 @@
 <body>
     <center>
         <textarea class="inv_shadow_box" placeholder="Message..." type="text" id="message-input"  style="margin-top: 130px;"></textarea>
-        <button onclick="interpretMessageDisplay()" class="submit" placeholder="submit" style="margin-top: 10px;margin-left: -230px;height: 50px;">Interpret</button>
+        <button onclick="interpretMessage()" class="submit" placeholder="submit" style="margin-top: 10px;margin-left: -230px;height: 50px;">Interpret</button>
     </center>
     <div id="load-presets">
         <h2 style="padding-bottom: 10px;">Presets</h2>
@@ -112,10 +112,11 @@ viewBox="0 0 172 172" id="emailSend" class="extra_button"><g fill="none" fill-ru
     </div>
 </center>
 
-    <a color="black" class="clear_button" onclick="copyToClipboard()">Copy to Clipboard<a/>
+    
 
 <center>
     <a href="javascript:history.go(0)" color="black" class="clear_button"">Clear<a/>
+    <a color="black" class="clear_button" style="margin-left: 20px;" onclick="copyToClipboard()">Copy to Clipboard<a/>
 </center>
 
 <style>

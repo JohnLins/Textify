@@ -13,7 +13,7 @@ function RenderToHtml() {
    
     document.getElementById("output").innerHTML = res;
   }
-
+/*
 function interpretMessage(message) {
     //var message = document.getElementById("message-input").value
     
@@ -24,33 +24,33 @@ function interpretMessage(message) {
     request.onload = () => {
         var response = JSON.parse(request.responseText) 
         //document.querySelector("#output").querySelector("h3").innerText = response
-        GlobalMessage = response
-
+        
+//GlobalMessage = response
         //RenderToHtml();
     }
     
     request.send()
     
-}
+}*/
 
-function interpretMessageDisplay() {
+function interpretMessage() {
     var message = document.getElementById("message-input").value
     
-    var url = `http://localhost:8080/interpretDisplay?msg=${encodeURIComponent(message)}`
+    var url = `http://localhost:8080/interpret?msg=${encodeURIComponent(message)}`
 
     var request = new XMLHttpRequest()
     request.open("GET", url)
     request.onload = () => {
         var response = JSON.parse(request.responseText) 
         document.querySelector("#output").querySelector("h3").innerText = response
-        //GlobalMessage = response
+        GlobalMessage = response
 
         RenderToHtml();
     }
     
     request.send()
 
-    interpretMessage(message);
+    //interpretMessage(message);
     
 }
 

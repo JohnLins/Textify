@@ -32,7 +32,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/interpret", interpretMessageResponse).Queries("msg", "{msg}").Methods("GET")
-	r.HandleFunc("/interpretDisplay", interpretMessageDisplayResponse).Queries("msg", "{msg}").Methods("GET")
+	//r.HandleFunc("/interpretDisplay", interpretMessageDisplayResponse).Queries("msg", "{msg}").Methods("GET")
 
 	r.HandleFunc("/add", addAcronymResponse).Queries("acronym", "{acronym}", "def", "{def}").Methods("GET")
 	r.HandleFunc("/del", deleteAcronymResponse).Queries("acronym", "{acronym}").Methods("GET")
@@ -56,7 +56,7 @@ func main() {
 
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir(url)))
 
-	open("http://localhost:8080/interpret.html")
+	open("http://localhost:8080/index.html")
 
 	http.ListenAndServe(":8080", r)
 
@@ -64,44 +64,6 @@ func main() {
 }
 
 func interpretMessageResponse(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-
-	params := mux.Vars(r)
-
-	message := params["msg"]
-
-	for index, element := range acronyms {
-		message = strings.Replace(message, index, element, 1)
-	}
-
-	output := []byte(message)
-
-	memeifi := false
-	for i := 0; i < len(message); i++ {
-		if string(message[i]) == "<" {
-			memeifi = true
-			output[i] = 32
-		}
-
-		if string(message[i]) == ">" {
-			memeifi = false
-			output[i] = 32
-		}
-
-		if memeifi == true && output[i] != byte(' ') {
-			if i%2 == 0 {
-				output[i] = byte(output[i] - 32)
-			}
-		}
-	}
-
-	fmt.Println(r.Method + " recieved with param " + "'" + params["msg"] + "'" + " Returned: " + message)
-
-	json.NewEncoder(w).Encode(string(output))
-}
-
-func interpretMessageDisplayResponse(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
@@ -257,7 +219,7 @@ func sendEmail(w http.ResponseWriter, r *http.Request) {
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
-		"Subject: Custom Acronyms Sent You a Message\n\n" +
+		"Subject: Textify Sent You a Message\n\n" +
 		params["msg"]
 
 	err := smtp.SendMail("smtp.gmail.com:587",
