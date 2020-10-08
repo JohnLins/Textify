@@ -1,8 +1,8 @@
-# Custom_Acronyms
-Work of <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and John Lins (William M. Soon)
-<br/>
+# Textify - Custom Acronyms
 
+Home
 <img src="screenshot1.png">
+Manage
 <img src="screenshot2.png">
 
 # Inspiration
@@ -13,7 +13,9 @@ It allows anyone to create their own custom acronyms so they can save time while
 
 # How we built it
 With Golang as the server-side language and HTML/CSS/JS on the frontend. This was done by creating an API on the server.
-
+<br/>
+Work of John Lins, <a href="https://github.com/DanielGoldenberg0">Daniel Goldenberg</a> and William M.
+<br/>
 
 # Run
 `cd /CustomAcronymsApp`
