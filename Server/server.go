@@ -44,15 +44,7 @@ func main() {
 
 	r.HandleFunc("/remove", removeResponse).Queries("remove", "{bool}").Methods("GET")
 
-	url := ""
-	switch runtime.GOOS {
-	case "windows":
-		url = "../Client/"
-	case "darwin":
-		url = "../Client/"
-	default:
-		url = "../Client/"
-	}
+	url := "../Client"
 
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir(url)))
 
