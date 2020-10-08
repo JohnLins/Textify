@@ -14,17 +14,6 @@ It allows anyone to create their own custom acronyms so they can save time while
 # How we built it
 With Golang as the server-side language and HTML/CSS/JS on the frontend. This was done by creating an API on the server.
 
-# Challenges we ran into
-Some git issues and plenty of bugs.
-
-# Accomplishments we're proud of
-Teamwork, speed, our product is easy to use!
-
-# What we learned
-Daniel and I learned each other's workflow which boosted efficiency.
-
-# What's next for Custom Acronyms
-We hope to deploy it just for fun on a basic home server.
 
 # Run
 `cd /CustomAcronymsApp`
